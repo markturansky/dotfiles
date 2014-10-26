@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ -f ~/.bashrc ]; then
+   source ~/.bashrc
+fi
+
 function echogo(){
     echo "GOROOT=$GOROOT"
     echo "GOPATH=$GOPATH"
@@ -47,6 +51,11 @@ function platform(){
 function src(){
     source ~/.bash_profile
 }
+
+if [ ! -d "$HOME/bin"  ]; then
+    echo "no $HOME/bin"
+    echo "git clone https://github.com/markturansky/dotfiles.git $HOME"
+fi
 
 platform
 

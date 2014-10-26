@@ -1,31 +1,13 @@
-**/.DS_Store
-*.iml
-.idea/
-*.local.etcd/
+# http://stackoverflow.com/questions/987142/make-gitignore-ignore-everything-except-a-few-files
+# Ignore everything
+*
 
+# But not these files
+!.gitconfig
+!.gitignore_global
+!.bash_profile*
+!/Projects
+!home.iml
 
-
-# OSX
-.CFUserTextEncoding
-.adobe/
-.android/
-.bash_history
-.boot2docker/
-.config/
-.cups/
-.dvdcss/
-.kubernetes_vagrant_auth
-.m2/
-.ssh/
-.vagrant.d/
-.viminfo
-Applications/
-Desktop/
-Documents/
-Downloads/
-Library/
-Movies/
-Music/
-Pictures/
-Public/
-VirtualBox VMs/
+# ...even if they are in subdirectories
+!*/
