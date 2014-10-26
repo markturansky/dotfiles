@@ -29,3 +29,39 @@ Music/
 Pictures/
 Public/
 VirtualBox VMs/
+
+
+
+.ICEauthority
+	.IntelliJIdea13/
+	.awscred
+	.bash_logout
+	.cache/
+	.dockercfg
+	.esd_auth
+	.gem/
+	.gitconfig.bak
+	.gnome/
+	.gnupg/
+	.gstreamer-0.10/
+	.java/
+	.local/
+	.mozilla/
+	.pki/
+	.purple/
+	Mark Turansky.asc
+	OpenShiftV3
+	OpenShiftV3~
+	Projects/
+	bin/
+	go/
+	ideaIU-13.1.4b.tar.gz
+	liteide/
+	mturansk-pubkey.asc
+	mturansk.cred
+	mturansk.cred.gpg
+	openshift/
+	openshift_2/
+	openshift_3/
+	progit.pdf
+
