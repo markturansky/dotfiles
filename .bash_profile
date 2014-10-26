@@ -4,8 +4,7 @@ if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
 
-# ln -sf ~/conf/.gitconfig .gitconfig
-# ln -sf ~/conf/.gitignore_global .gitignore_global
+
 
 function echogo(){
     echo "GOROOT=$GOROOT"
@@ -66,7 +65,10 @@ alias ll='ls -l'
 alias la='ls -la'
 
 # git shortcuts
+ln -sf ~/conf/.gitconfig .gitconfig
+ln -sf ~/conf/.gitignore_global .gitignore_global
 alias gs='git status'
+
 
 
 # Git support

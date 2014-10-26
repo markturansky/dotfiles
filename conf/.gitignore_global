@@ -4,9 +4,6 @@
 
 # But not these files
 !.bash_profile*
-!/bin
-!/conf
+!/bin/*
+!/conf/*
 !home.iml
-
-# ...even if they are in subdirectories
-!*/
