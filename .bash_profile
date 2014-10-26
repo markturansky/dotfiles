@@ -4,6 +4,9 @@ if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
 
+# ln -sf ~/conf/.gitconfig .gitconfig
+# ln -sf ~/conf/.gitignore_global .gitignore_global
+
 function echogo(){
     echo "GOROOT=$GOROOT"
     echo "GOPATH=$GOPATH"

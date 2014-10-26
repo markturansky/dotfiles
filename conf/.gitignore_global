@@ -3,8 +3,6 @@
 *
 
 # But not these files
-!.gitconfig
-!.gitignore_global
 !.bash_profile*
 !/bin
 !/conf
