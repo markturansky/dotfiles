@@ -2,3 +2,30 @@
 *.iml
 .idea/
 *.local.etcd/
+
+
+
+# OSX
+.CFUserTextEncoding
+.adobe/
+.android/
+.bash_history
+.boot2docker/
+.config/
+.cups/
+.dvdcss/
+.kubernetes_vagrant_auth
+.m2/
+.ssh/
+.vagrant.d/
+.viminfo
+Applications/
+Desktop/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+VirtualBox VMs/
