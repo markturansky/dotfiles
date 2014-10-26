@@ -1,46 +1,57 @@
-export JAVA_HOME=`/usr/libexec/java_home`
+#!/bin/bash
 
-
-
-function setpath() {
-	export GOROOT="/Users/markturansky/Applications/go"
-	export GOPATH="/Users/markturansky/Projects/go"
-
-    export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-    export PATH=$GOROOT/bin:$PATH
-    export PATH=$PATH:$GOPATH/bin
-    
-    echo $GOROOT
-    echo $GOPATH
-    echo $PATH
+function echogo(){
+    echo "GOROOT=$GOROOT"
+    echo "GOPATH=$GOPATH"
+    echo "PATH=$PATH"
 }
 
-
 function devkube(){
-	setpath
+
 	export GOPATH="$GOPATH:$GOPATH/src/github.com/GoogleCloudPlatform/kubernetes/Godeps/_workspace"		
-	echo $GOPATH
-	
+	echogo
 	alias work='cd /Users/markturansky/Projects/go/src/github.com/GoogleCloudPlatform/kubernetes'
+
+    # KUBERNETES!
+    export KUBERNETES_PROVIDER='vagrant'
+    export KUBERNETES_NUM_MINIONS=1
+    alias kup='ku; cluster/kube-up.sh'
+    alias kdn='ku; cluster/kube-down.sh'
+    alias kfg='ku; cluster/kubecfg.sh'
 }
 
 function devopen(){
-	setpath
 	export GOPATH="$GOPATH:$GOPATH/src/github.com/openshift/origin/Godeps/_workspace"		
     export PATH="$PATH:/Users/markturansky/Projects/go/src/github.com/openshift/origin/_output/go/bin"
    	echo $GOPATH
    	alias work='cd /Users/markturansky/Projects/go/src/github.com/openshift/origin'
 }
 
+function platform(){
+
+    platform='unknown'
+    unamestr=`uname`
+    if [[ "$unamestr" == 'Linux' ]]; then
+       platform='linux'
+       islinux=true
+       source ~/.bash_profile_linux
+    elif [[ "$unamestr" == 'Darwin' ]]; then
+       platform='osx'
+       isosx=true
+       source ~/.bash_profile_osx
+    fi
+
+    echo $platform
+}
+
+function src(){
+    source ~/.bash_profile
+}
+
+platform
 
 alias ll='ls -l'
-alias gp='cd /Users/markturansky/Projects/go'
-alias ku='cd /Users/markturansky/Projects/go/src/github.com/GoogleCloudPlatform/kubernetes'
-alias vu='gp:echo 2'
-alias vs='gp; vagrant ssh'
-alias vd='gp; vagrant suspend'
-alias vu='gp; vagrant up'
-alias gc="git checkout"
+
 
 # Git support
 [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ] && . /usr/share/git-core/contrib/completion/git-prompt.sh >/dev/null
@@ -66,9 +77,4 @@ PROMPT_COMMAND='history -a;PS1="${prompt_title}${color_glyph}${prompt_glyph}${co
 export TERM="xterm-color" PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$ '
 
 
-# KUBERNETES!
-export KUBERNETES_PROVIDER='vagrant'
-export KUBERNETES_NUM_MINIONS=1
-alias kup='ku; cluster/kube-up.sh'
-alias kdn='ku; cluster/kube-down.sh'
-alias kfg='ku; cluster/kubecfg.sh'
+

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "hi i'm in linux"
