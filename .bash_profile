@@ -60,6 +60,10 @@ fi
 platform
 
 alias ll='ls -l'
+alias la='ls -la'
+
+# git shortcuts
+alias gs='git status'
 
 
 # Git support
