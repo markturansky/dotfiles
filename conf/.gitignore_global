@@ -1,9 +1,13 @@
 # http://stackoverflow.com/questions/987142/make-gitignore-ignore-everything-except-a-few-files
 # Ignore everything
-*
+
 
 # But not these files
 !.bash_profile*
 !/bin/*
 !/conf/*
 !home.iml
+kubernetes.iml
+
+*.DS_Store
+*scratch.go
