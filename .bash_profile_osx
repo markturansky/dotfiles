@@ -1,14 +1,13 @@
 #!/bin/bash
 
 export GOROOT="/Users/markturansky/Applications/go"
-export GOPATH="/Users/markturansky/Projects/go"
+export GOPATH="/Users/markturansky/Projects/"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH=$GOROOT/bin:$PATH
-export PATH=$PATH:$GOPATH/bin
 export JAVA_HOME=`/usr/libexec/java_home`
 
-alias gp='cd /Users/markturansky/Projects/go'
-alias ku='cd /Users/markturansky/Projects/go/src/github.com/GoogleCloudPlatform/kubernetes'
+alias gp='cd /Users/markturansky/Projects/'
+alias ku='cd /Users/markturansky/Projects/src/github.com/GoogleCloudPlatform/kubernetes'
 alias vu='gp:echo 2'
 alias vs='gp; vagrant ssh'
 alias vd='gp; vagrant suspend'
