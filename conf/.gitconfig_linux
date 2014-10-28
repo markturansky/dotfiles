@@ -1,0 +1,5 @@
+[user]
+	name = markturansky
+	email = mturansk@redhat.com
+[core]
+	excludesfile = /home/markturansky/.gitignore_global
