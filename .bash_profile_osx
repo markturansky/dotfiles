@@ -1,10 +1,14 @@
 #!/bin/bash
 
+echo MOTHERFUCK
 export GOROOT="/Users/markturansky/Applications/go"
-export GOPATH="/Users/markturansky/Projects/"
+export GOPATH="/Users/markturansky/Projects"
+export ETCD_PATH="/Users/markturansky/Projects/src/github.com/coreos/etcd"
+
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH=$GOROOT/bin:$PATH
-export PATH=$PATH:$GOPATH/bin
+export PATH="$PATH:$GOPATH/bin:$ETCD_PATH/bin"
+
+echo $PATH
 export JAVA_HOME=`/usr/libexec/java_home`
 
 alias gp='cd /Users/markturansky/Projects/'
@@ -14,5 +18,3 @@ alias vs='gp; vagrant ssh'
 alias vd='gp; vagrant suspend'
 alias vu='gp; vagrant up'
 alias gc="git checkout"
-
-
