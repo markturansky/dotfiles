@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo MOTHERFUCK
 export GOROOT="/Users/markturansky/Applications/go"
 export GOPATH="/Users/markturansky/Projects"
 export ETCD_PATH="/Users/markturansky/Projects/src/github.com/coreos/etcd"

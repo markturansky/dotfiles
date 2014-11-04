@@ -64,3 +64,8 @@ function grfm(){
     git checkout $1
     git rebase -i master
 }
+
+# which etcd
+function wetcd(){
+    ps -ef | grep etcd
+}
