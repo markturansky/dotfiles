@@ -11,7 +11,7 @@ function devkube(){
 
 	export GOPATH="$GOPATH:$GOPATH/src/github.com/GoogleCloudPlatform/kubernetes/Godeps/_workspace"
 	echogo
-	alias work='cd /Users/markturansky/Projects/go/src/github.com/GoogleCloudPlatform/kubernetes'
+	alias work='cd /Users/markturansky/Projects/src/github.com/GoogleCloudPlatform/kubernetes'
 
     # KUBERNETES!
     export KUBERNETES_PROVIDER='vagrant'
@@ -58,9 +58,19 @@ function src(){
 # git rebase from master
 function grfm(){
 
+    echo "---------------------------------------------------------"
+    echo "Updating master and origin from upstream Kubernetes"
+    echo "---------------------------------------------------------"
     git checkout master
     git fetch upstream
     git merge upstream/master
+    git push origin master
+
+    echo ""
+    echo "---------------------------------------------------------"
+    echo "Rebasing $1 from master"
+    echo "---------------------------------------------------------"
+
     git checkout $1
     git rebase -i master
 }
@@ -68,4 +78,19 @@ function grfm(){
 # which etcd
 function wetcd(){
     ps -ef | grep etcd
+}
+
+function fullbuild(){
+
+    ku
+    hack/verify-gofmt.sh
+    make clean
+    make
+    hack/test-go.sh
+    hack/test-cmd.sh
+    hack/test-integration.sh
+}
+
+function amend(){
+    git commit --amend --no-edit
 }
