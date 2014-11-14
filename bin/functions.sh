@@ -75,9 +75,21 @@ function grfm(){
     git rebase -i master
 }
 
-# which etcd
-function wetcd(){
-    ps -ef | grep etcd
+# kill etcd
+function ketcd(){
+
+    LINE=`ps -ef | grep etcd | grep test`
+    echo $LINE
+
+    ## Convert string to bash array
+    ARR=($LINE)
+
+    if [ -z ${ARR[1]} ]; then
+        echo 'nothing to kill'
+    else
+        echo "killing etcd pid ${ARR[1]}"
+        kill ${ARR[1]}
+    fi
 }
 
 function fullbuild(){
@@ -91,6 +103,20 @@ function fullbuild(){
     hack/test-integration.sh
 }
 
+function mm(){
+    make clean
+    make
+}
+function t(){
+    hack/test-go.sh $1
+}
+function  i(){
+    hack/test-integration.sh
+}
+function mmt(){
+    mm
+    t $1
+}
 function amend(){
     git commit --amend --no-edit
 }
