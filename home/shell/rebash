@@ -1,25 +1,34 @@
 #!/bin/bash
 
-if [ ! -d "$HOME/bin"  ]; then
-    echo "no $HOME/bin"
+echo "Rebashing..."
+
+if [ ! -d "$HOME/home"  ]; then
+    echo "no $HOME/home"
     echo "git clone https://github.com/markturansky/dotfiles.git $HOME"
     exit
 fi
 
-source ~/bin/functions.sh
-platform
+source ~/home/shell/functions.sh
+platform && echo "Platform: $platform"
 
 alias ll='ls -l'
 alias la='ls -la'
 
-# git shortcuts
-ln -sf ~/conf/.gitconfig_$platform ~/.gitconfig
-ln -sf ~/conf/.gitignore_global ~/.gitignore_global
+#
+# Go
+#
+export GOROOT=~/go/
+
+#
+# Git
+#
+
+# replace existing .git configs with links to the repo version
+ln -sf ~/home/shell/.gitconfig_$platform ~/.gitconfig
+ln -sf ~/home/shell/.gitignore_global ~/.gitignore_global
 alias gs='git status'
 
-# Git support
-[ -f /usr/share/git-core/contrib/completion/git-prompt.sh ] && . /usr/share/git-core/contrib/completion/git-prompt.sh >/dev/null
-[ -f /etc/bash_completion.d/git ] && . /etc/bash_completion.d/git >/dev/null
+source ~/home/shell/git-completion.sh
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true

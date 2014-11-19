@@ -5,4 +5,4 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-source ~/bin/rebash
+source ~/home/shell/rebash

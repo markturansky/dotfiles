@@ -1,7 +1,8 @@
 
 *.DS_Store
 *scratch*
-*.iml
+
 .git*
 
+.idea/*
 Godeps/*
