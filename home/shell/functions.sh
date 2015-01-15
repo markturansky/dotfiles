@@ -17,6 +17,7 @@ function platform(){
 
 function src(){
     source ~/home/shell/rebash
+    source ~/home/shell/mtail
 }
 
 function echogo(){
@@ -28,20 +29,23 @@ function echogo(){
 function ku(){
 
     export PATH="$PATH:~/go/src/github.com/coreos/etcd/bin"
-    export GOPATH=~/go/src/github.com/GoogleCloudPlatform/kubernetes
-#	export GOPATH="$GOPATH:$GOPATH/src/github.com/GoogleCloudPlatform/kubernetes/Godeps/_workspace"
-#	echogo
+    export GOPATH=~/openshift_3/src/github.com/GoogleCloudPlatform/kubernetes
+
 	cd $GOPATH
+
+	export GOPATH="$GOPATH:$GOPATH/Godeps/_workspace"
 	echo "GOPATH: $GOPATH"
 
 	pwd
 
     # KUBERNETES!
-    export KUBERNETES_PROVIDER='vagrant'
+    export KUBERNETES_PROVIDER='local'
     export KUBERNETES_NUM_MINIONS=1
     alias kup='ku; cluster/kube-up.sh'
     alias kdn='ku; cluster/kube-down.sh'
-    alias kfg='ku; cluster/kubecfg.sh'
+    alias kfg='cluster/kubecfg.sh'
+    alias kft='cluster/kubectl.sh'
+    alias mtail='~/home/shell/mtail'
 }
 
 function devopen(){
@@ -93,6 +97,10 @@ function ketcd(){
         echo "killing etcd pid ${ARR[1]}"
         kill ${ARR[1]}
     fi
+}
+
+function klog(){
+    mtail /tmp/kube-apiserver.log /tmp/kube-controller-manager.log /tmp/kubelet.log /tmp/kube-proxy.log /tmp/kube-scheduler.log
 }
 
 function fullbuild(){
