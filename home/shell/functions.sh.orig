@@ -7,11 +7,11 @@ function platform(){
     if [[ "$unamestr" == 'Linux' ]]; then
        platform='linux'
        islinux=true
-       source ~/home/shell/.bash_profile_linux
+       source ~/.bash_profile_linux
     elif [[ "$unamestr" == 'Darwin' ]]; then
        platform='osx'
        isosx=true
-       source ~/home/shell/.bash_profile_osx
+       source ~/.bash_profile_osx
     fi
 }
 
@@ -28,30 +28,24 @@ function echogo(){
 
 function ku(){
 
-    export GOPATH="$KUBE_ROOT"
+    export PATH="$PATH:~/go/src/github.com/coreos/etcd/bin"
+    export GOPATH=~/openshift_3/src/github.com/GoogleCloudPlatform/kubernetes
+
+	cd $GOPATH
+
 	export GOPATH="$GOPATH:$GOPATH/Godeps/_workspace"
+	echo "GOPATH: $GOPATH"
 
-	cd $KUBE_ROOT
-
-
+	pwd
 
     # KUBERNETES!
     export KUBERNETES_PROVIDER='local'
-    export NUM_MINIONS=1
+    export KUBERNETES_NUM_MINIONS=1
     alias kup='ku; cluster/kube-up.sh'
     alias kdn='ku; cluster/kube-down.sh'
     alias kfg='cluster/kubecfg.sh'
     alias kft='cluster/kubectl.sh'
     alias mtail='~/home/shell/mtail'
-
-	echo "Kubernetes dev ... "
-	echo "GOPATH                = $GOPATH"
-	echo "KUBE_ROOT             = $KUBE_ROOT"
-    echo "PWD                   = `pwd`"
-    echo "KUBERNETES_PROVIDER   = $KUBERNETES_PROVIDER"
-    echo "NUM_MINIONS           = $NUM_MINIONS"
-    echo "Happy hacking!"
-
 }
 
 dockerClearContainers() {

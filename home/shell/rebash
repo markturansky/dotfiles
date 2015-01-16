@@ -14,10 +14,8 @@ platform && echo "Platform: $platform"
 alias ll='ls -l'
 alias la='ls -la'
 
-#
-# Go
-#
-export GOROOT=~/go/
+
+
 
 #
 # Git
@@ -27,6 +25,7 @@ export GOROOT=~/go/
 ln -sf ~/home/shell/.gitconfig_$platform ~/.gitconfig
 ln -sf ~/home/shell/.gitignore_global ~/.gitignore_global
 alias gs='git status'
+alias gc="git checkout"
 
 source ~/home/shell/git-completion.sh
 
