@@ -33,6 +33,8 @@ function ku(){
 
 	cd $KUBE_ROOT
 
+    echo "Initializing boot2docker"
+	boot2docker shellinit
 
 
     # KUBERNETES!
@@ -41,7 +43,7 @@ function ku(){
     alias kup='ku; cluster/kube-up.sh'
     alias kdn='ku; cluster/kube-down.sh'
     alias kfg='cluster/kubecfg.sh'
-    alias kft='cluster/kubectl.sh'
+    alias kft='cluster/kubectl.sh --v=5'
     alias mtail='~/home/shell/mtail'
 
 	echo "Kubernetes dev ... "
@@ -50,6 +52,20 @@ function ku(){
     echo "PWD                   = `pwd`"
     echo "KUBERNETES_PROVIDER   = $KUBERNETES_PROVIDER"
     echo "NUM_MINIONS           = $NUM_MINIONS"
+    echo "boot2docker           = `boot2docker status`"
+    echo "Happy hacking!"
+
+}
+
+function os(){
+
+    export GOPATH="$ORIGIN_ROOT"
+    cd $ORIGIN_ROOT
+
+	echo "Origin dev ... "
+	echo "GOPATH                = $GOPATH"
+	echo "ORIGIN_ROOT           = $ORIGIN_ROOT"
+    echo "PWD                   = `pwd`"
     echo "Happy hacking!"
 
 }
@@ -135,6 +151,9 @@ function mm(){
 }
 function t(){
     hack/test-go.sh $1
+}
+function  b(){
+    hack/build-go.sh
 }
 function  i(){
     hack/test-integration.sh

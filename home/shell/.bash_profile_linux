@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+
+export GOROOT=/home/markturansky/go
+export ETCD_ROOT="~/go/src/github.com/coreos/etcd"
+export KUBE_ROOT="~/openshift_3/src/github.com/GoogleCloudPlatform/kubernetes"
+export ORIGIN_ROOT="/Users/markturansky/Projects/src/github.com/openshift/origin"
+
+export JAVA_HOME=/etc/alternatives/jre_sdk
+export PATH=$JAVA_HOME/bin:$GOROOT/bin:$PATH
+export PATH="$PATH:$ETCD_ROOT/bin"
+
+alias idea="/home/markturansky/Applications/idea-IU-135.1230/bin/idea.sh >> /dev/null &"
+
+alias os="/home/markturansky/Projects/src/github.com/openshift/origin/_output/go/bin/openshift"
