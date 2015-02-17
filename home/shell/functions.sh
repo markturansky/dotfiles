@@ -38,9 +38,8 @@ function ku(){
 
 
     # KUBERNETES!
-    export KUBERNETES_PROVIDER='local'
+    export KUBERNETES_PROVIDER=''
     export NUM_MINIONS=1
-    alias kup='ku; cluster/kube-up.sh'
     alias kdn='ku; cluster/kube-down.sh'
     alias kfg='cluster/kubecfg.sh'
     alias kft='cluster/kubectl.sh --v=5'
@@ -132,6 +131,12 @@ function ketcd(){
 
 function klog(){
     mtail /tmp/kube-apiserver.log /tmp/kube-controller-manager.log /tmp/kubelet.log /tmp/kube-proxy.log /tmp/kube-scheduler.log
+}
+
+function kup(){
+    ku
+    export LOG_LEVEL=5
+    hack/local-up-cluster.sh
 }
 
 function fullbuild(){
