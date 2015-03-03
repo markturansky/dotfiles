@@ -109,7 +109,7 @@ function grfm(){
     echo "---------------------------------------------------------"
 
     git checkout $1
-    git rebase -i master
+    git rebase master
 }
 
 # kill etcd

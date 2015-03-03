@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export GOROOT="/Users/markturansky/Applications/go"
+export GOROOT="/Users/markturansky/Applications/go1.4.2"
 export ETCD_ROOT="/Users/markturansky/Projects/src/github.com/coreos/etcd"
 export KUBE_ROOT="/Users/markturansky/Projects/src/github.com/GoogleCloudPlatform/kubernetes"
 export ORIGIN_ROOT="/Users/markturansky/Projects/src/github.com/openshift/origin"
