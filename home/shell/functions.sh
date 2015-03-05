@@ -33,10 +33,6 @@ function ku(){
 
 	cd $KUBE_ROOT
 
-    echo "Initializing boot2docker"
-	boot2docker shellinit
-
-
     # KUBERNETES!
     export KUBERNETES_PROVIDER=''
     export NUM_MINIONS=1
@@ -76,6 +72,11 @@ dockerClearContainers() {
 dockerClearImages() {
     dockerClearContainers
     docker rmi $(docker images)
+}
+
+dinit(){
+    echo "Initializing boot2docker"
+    $(boot2docker shellinit)
 }
 
 function devopen(){
