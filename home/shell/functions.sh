@@ -41,6 +41,10 @@ function ku(){
     alias kft='cluster/kubectl.sh --v=5'
     alias mtail='~/home/shell/mtail'
 
+    alias cv1='kft create -f examples/persistent-volumes/volumes/local-01.yaml'
+    alias cc1='kft create -f examples/persistent-volumes/claims/claim-01.yaml'
+    alias cp1='kft create -f examples/persistent-volumes/pods/pod.yaml'
+
 	echo "Kubernetes dev ... "
 	echo "GOPATH                = $GOPATH"
 	echo "KUBE_ROOT             = $KUBE_ROOT"
