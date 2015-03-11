@@ -144,6 +144,10 @@ function kup(){
     hack/local-up-cluster.sh
 }
 
+function kill8(){
+    ps -ef | grep 8080 | awk '{print $2}' | xargs sudo kill -9
+}
+
 function fullbuild(){
 
     ku
