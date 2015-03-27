@@ -38,7 +38,7 @@ function ku(){
     export NUM_MINIONS=1
     alias kdn='ku; cluster/kube-down.sh'
     alias kfg='cluster/kubecfg.sh'
-    alias kft='cluster/kubectl.sh --v=5'
+    alias kt='cluster/kubectl.sh --v=5'
     alias mtail='~/home/shell/mtail'
 
     alias cv1='kft create -f examples/persistent-volumes/volumes/local-01.yaml'
@@ -117,6 +117,11 @@ function grfm(){
     git rebase master
 }
 
+function girfm(){
+    grfm $1
+    git rebase -i master
+}
+
 # kill etcd
 function ketcd(){
 
@@ -178,4 +183,10 @@ function mmt(){
 }
 function amend(){
     git commit --amend --no-edit
+}
+
+function verify(){
+    hack/verify-gofmt.sh
+    hack/verify-description.sh
+
 }
