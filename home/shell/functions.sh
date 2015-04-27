@@ -38,7 +38,7 @@ function ku(){
     export NUM_MINIONS=1
     alias kdn='ku; cluster/kube-down.sh'
     alias kfg='cluster/kubecfg.sh'
-    alias kt='cluster/kubectl.sh --v=5'
+    alias k='cluster/kubectl.sh --v=5'
     alias mtail='~/home/shell/mtail'
 
     alias cv1='kft create -f examples/persistent-volumes/volumes/local-01.yaml'
