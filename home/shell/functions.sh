@@ -28,10 +28,7 @@ function echogo(){
 
 function ku(){
 
-    export GOPATH="$KUBE_ROOT"
-	export GOPATH="$GOPATH:$GOPATH/Godeps/_workspace"
-
-	cd $KUBE_ROOT
+	cd $GOPATH/src/github.com/GoogleCloudPlatform/kubernetes
 
     # KUBERNETES!
     export KUBERNETES_PROVIDER=''
@@ -58,8 +55,7 @@ function ku(){
 
 function os(){
 
-    export GOPATH="$ORIGIN_ROOT"
-    cd $ORIGIN_ROOT
+    cd $GOPATH/src/github.com/openshift/origin
 
 	echo "Origin dev ... "
 	echo "GOPATH                = $GOPATH"

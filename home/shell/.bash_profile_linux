@@ -18,6 +18,7 @@ export ORIGIN_ROOT="/Users/markturansky/Projects/src/github.com/openshift/origin
 export JAVA_HOME=/etc/alternatives/jre_sdk
 export PATH=$JAVA_HOME/bin:$GOROOT/bin:$PATH
 export PATH="$PATH:$ETCD_ROOT/bin"
+export GOPATH=/home/markturansky/Projects
 
 alias idea="/home/markturansky/Applications/idea-IU-135.1230/bin/idea.sh >> /dev/null &"
 
