@@ -38,9 +38,9 @@ function ku(){
     alias k='cluster/kubectl.sh --v=5'
     alias mtail='~/home/shell/mtail'
 
-    alias cv1='kft create -f examples/persistent-volumes/volumes/local-01.yaml'
-    alias cc1='kft create -f examples/persistent-volumes/claims/claim-01.yaml'
-    alias cp1='kft create -f examples/persistent-volumes/pods/pod.yaml'
+    alias v2='k create -f examples/persistent-volumes/volumes/local-02.yaml'
+    alias c2='k create -f examples/persistent-volumes/claims/claim-02.yaml'
+    alias p1='k create -f examples/persistent-volumes/simpletest/pod.yaml'
 
 	echo "Kubernetes dev ... "
 	echo "GOPATH                = $GOPATH"
@@ -56,6 +56,9 @@ function ku(){
 function os(){
 
     cd $GOPATH/src/github.com/openshift/origin
+
+
+    alias o='_output/local/go/bin/osc'
 
 	echo "Origin dev ... "
 	echo "GOPATH                = $GOPATH"
