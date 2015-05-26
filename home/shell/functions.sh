@@ -28,17 +28,14 @@ function echogo(){
 
 function ku(){
 
-    export GOPATH="$KUBE_ROOT"
-	export GOPATH="$GOPATH:$GOPATH/Godeps/_workspace"
-
-	cd $KUBE_ROOT
+	cd $GOPATH/src/github.com/GoogleCloudPlatform/kubernetes
 
     # KUBERNETES!
     export KUBERNETES_PROVIDER=''
     export NUM_MINIONS=1
     alias kdn='ku; cluster/kube-down.sh'
     alias kfg='cluster/kubecfg.sh'
-    alias kft='cluster/kubectl.sh --v=5'
+    alias k='cluster/kubectl.sh --v=5'
     alias mtail='~/home/shell/mtail'
 
     alias cv1='kft create -f examples/persistent-volumes/volumes/local-01.yaml'
@@ -58,8 +55,7 @@ function ku(){
 
 function os(){
 
-    export GOPATH="$ORIGIN_ROOT"
-    cd $ORIGIN_ROOT
+    cd $GOPATH/src/github.com/openshift/origin
 
 	echo "Origin dev ... "
 	echo "GOPATH                = $GOPATH"
@@ -115,6 +111,11 @@ function grfm(){
 
     git checkout $1
     git rebase master
+}
+
+function girfm(){
+    grfm $1
+    git rebase -i master
 }
 
 # kill etcd
@@ -178,4 +179,10 @@ function mmt(){
 }
 function amend(){
     git commit --amend --no-edit
+}
+
+function verify(){
+    hack/verify-gofmt.sh
+    hack/verify-description.sh
+
 }
