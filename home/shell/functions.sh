@@ -31,12 +31,13 @@ function ku(){
 	cd $GOPATH/src/github.com/GoogleCloudPlatform/kubernetes
 
     # KUBERNETES!
+    export LOG_LEVEL=5
     export KUBERNETES_PROVIDER=''
     export NUM_MINIONS=1
     alias kdn='ku; cluster/kube-down.sh'
     alias kfg='cluster/kubecfg.sh'
     alias k='cluster/kubectl.sh --v=5'
-    alias mtail='~/home/shell/mtail'
+    alias kup="sudo PATH=$PATH -E hack/local-up-cluster.sh"
 
     alias v2='k create -f examples/persistent-volumes/volumes/local-02.yaml'
     alias c2='k create -f examples/persistent-volumes/claims/claim-02.yaml'
@@ -142,12 +143,6 @@ function klog(){
     mtail /tmp/kube-apiserver.log /tmp/kube-controller-manager.log /tmp/kubelet.log /tmp/kube-proxy.log /tmp/kube-scheduler.log
 }
 
-function kup(){
-    ku
-    export LOG_LEVEL=5
-    hack/local-up-cluster.sh
-}
-
 function kill8(){
     ps -ef | grep 8080 | awk '{print $2}' | xargs sudo kill -9
 }
@@ -187,5 +182,27 @@ function amend(){
 function verify(){
     hack/verify-gofmt.sh
     hack/verify-description.sh
+}
 
+# usage: watch <your_command> <sleep_duration>
+function watch(){
+    while :;
+      do
+      clear;
+      echo "$(date)"
+      $1;
+      sleep $2;
+    done
+}
+
+function isempty(){
+    DIR=$1
+    # init
+    # look for empty dir
+    echo "$(ls -A $DIR)"
+    if [ "$(ls -A $DIR)" ]; then
+         echo "Take action $DIR is not Empty"
+    else
+        echo "$DIR is Empty"
+    fi
 }
