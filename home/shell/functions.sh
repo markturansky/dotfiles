@@ -75,7 +75,7 @@ dockerClearContainers() {
 
 dockerClearImages() {
     dockerClearContainers
-    docker rmi $(docker images)
+    docker rmi -f $(docker images -q)
 }
 
 dinit(){

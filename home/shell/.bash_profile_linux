@@ -22,4 +22,4 @@ export GOPATH=/home/markturansky/Projects
 
 alias idea="/home/markturansky/Applications/idea-IU-135.1230/bin/idea.sh >> /dev/null &"
 
-alias os="/home/markturansky/Projects/src/github.com/openshift/origin/_output/go/bin/openshift"
+alias osc="/home/markturansky/Projects/src/github.com/openshift/origin/_output/go/bin/openshift"
