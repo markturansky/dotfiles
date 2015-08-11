@@ -28,7 +28,7 @@ function echogo(){
 
 function ku(){
 
-	cd $GOPATH/src/github.com/GoogleCloudPlatform/kubernetes
+	cd $KUBE_ROOT
 
     # KUBERNETES!
     export LOG_LEVEL=5

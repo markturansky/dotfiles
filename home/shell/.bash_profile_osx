@@ -2,7 +2,7 @@
 
 export GOROOT="/Users/markturansky/Applications/go1.4.2"
 export ETCD_ROOT="/Users/markturansky/Projects/src/github.com/coreos/etcd"
-export KUBE_ROOT="/Users/markturansky/Projects/src/github.com/GoogleCloudPlatform/kubernetes"
+export KUBE_ROOT="/Users/markturansky/Projects/src/k8s.io/kubernetes"
 export ORIGIN_ROOT="/Users/markturansky/Projects/src/github.com/openshift/origin"
 export JAVA_HOME=`/usr/libexec/java_home`
 
@@ -12,3 +12,9 @@ export PATH="$PATH:$KUBE_ROOT/bin"
 export PATH="$PATH:$ORIGIN_ROOT/_output/local/go/bin"
 export GOPATH=/Users/markturansky/Projects
 
+
+# Brew setup
+hash brew 2>/dev/null && source $(brew --prefix)/etc/bash_completion
+
+# boot2docker setup
+hash boot2docker 2>/dev/null && eval "$(boot2docker shellinit 2>/dev/null)"
