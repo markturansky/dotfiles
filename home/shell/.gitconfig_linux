@@ -3,3 +3,5 @@
 	email = mturansk@redhat.com
 [core]
 	excludesfile = /home/markturansky/.gitignore_global
+[credential]
+	helper = cache --timeout=3600

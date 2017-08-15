@@ -17,7 +17,6 @@ function platform(){
 
 function src(){
     source ~/home/shell/rebash
-    source ~/home/shell/mtail
 }
 
 function echogo(){
@@ -58,17 +57,26 @@ function os(){
 
     cd $GOPATH/src/github.com/openshift/origin
 
+    export PATH="$PATH:/home/markturansky/Projects/src/github.com/openshift/origin/_output/local/go/bin/"
+    export KUBECONFIG=/home/markturansky/Projects/src/github.com/openshift/origin/openshift.local.config/master/admin.kubeconfig
 
-    alias o='_output/local/go/bin/osc'
 
 	echo "Origin dev ... "
 	echo "GOPATH                = $GOPATH"
 	echo "ORIGIN_ROOT           = $ORIGIN_ROOT"
+	echo "PATH                  = $PATH"
     echo "PWD                   = `pwd`"
     echo "Happy hacking!"
 
 }
 
+function osstart(){
+    sudo _output/local/go/bin/openshift start --loglevel=5 --latest-images=true
+}
+
+function osclear(){
+    sudo rm -rfv openshift.local.volumes/ openshift.local.etcd/
+}
 dockerClearContainers() {
     docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
 }
@@ -82,15 +90,6 @@ dinit(){
     echo "Initializing boot2docker"
     $(boot2docker shellinit)
 }
-
-function devopen(){
-	export GOPATH="$GOPATH:$GOPATH/src/github.com/openshift/origin/Godeps/_workspace"
-    export PATH="$PATH:/Users/markturansky/Projects/go/src/github.com/openshift/origin/_output/go/bin"
-   	echo $GOPATH
-   	alias work='cd /Users/markturansky/Projects/go/src/github.com/openshift/origin'
-}
-
-
 
 dockerClear() {
     docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
@@ -139,10 +138,6 @@ function ketcd(){
     fi
 }
 
-function klog(){
-    mtail /tmp/kube-apiserver.log /tmp/kube-controller-manager.log /tmp/kubelet.log /tmp/kube-proxy.log /tmp/kube-scheduler.log
-}
-
 function kill8(){
     ps -ef | grep 8080 | awk '{print $2}' | xargs sudo kill -9
 }
@@ -163,7 +158,7 @@ function mm(){
     make
 }
 function t(){
-    hack/test-go.sh $1
+    TEST_KUBE=1 hack/test-go.sh $1
 }
 function  b(){
     hack/build-go.sh
