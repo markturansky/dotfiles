@@ -11,6 +11,7 @@ fi
 # User specific aliases and functions
 
 export GOROOT=/home/markturansky/go
+
 export ETCD_ROOT="~/go/src/github.com/coreos/etcd"
 export KUBE_ROOT="~/openshift_3/src/github.com/GoogleCloudPlatform/kubernetes"
 export ORIGIN_ROOT="/Users/markturansky/Projects/src/github.com/openshift/origin"
